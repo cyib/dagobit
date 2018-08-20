@@ -1,0 +1,19 @@
+<form>
+  <div class="vhcenter">
+    <h2 class="title center">DAGOBIT</h2>
+    <div class="container">
+      <input type="text" [(ngModel)]="user.username" placeholder="Nome de usuário" name="uname" required>
+      <input type="password" [(ngModel)]="user.password" placeholder="Senha" name="psw" required>
+      <button type="submit" (click)="fnlogin()">Entrar</button>
+      <div class="center">
+        <p class="error" [hidden]="okay">Login ou senha incorretos</p>
+      </div>
+      <div class="center">
+        <a href="#" class="forgot">Esqueceu sua senha?</a>
+      </div>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="registerbtn">Registrar</button>
+    </div>
+  </div>
+</form>

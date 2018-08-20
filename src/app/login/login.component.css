@@ -1,0 +1,94 @@
+body {
+    font-family: Lora;
+}
+form {
+    margin-top: 20%;
+    border: 3px solid #f1f1f1;
+}
+
+@font-face {
+    font-family: Lora;
+    src: url("/assets/fonts/lora/Lora-Regular.ttf");
+}
+
+.title{
+    font-family: Lora;
+    font-size: 38px; 
+}
+
+.vhcenter{
+    
+    vertical-align: middle;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #000DA9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.error{
+    color:rgb(255, 0, 0);
+    font-size: 16px;
+}
+
+.registerbtn {
+    width: 100%;
+    padding: 10px 18px;
+    background-color: rgba(0, 14, 169, 0.600);
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.center{
+    text-align: center;
+}
+.forgot{
+    color: darkslategray;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (min-width:500px) {
+    form {
+      width:500px; 
+      margin: auto;
+      margin-top: 5%;
+    }
+  }

@@ -1,0 +1,13 @@
+{
+    "short_name": "Dagobit",
+    "name": "Dagobit",
+    "icons": [
+        {
+            "src": "/assets/images/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen"
+}
