@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
 import { Globals } from '../global';
 import { debug } from 'util';
+import { Feed } from './feed';
 
 @Component({
   selector: 'app-feed',
@@ -15,6 +16,8 @@ export class FeedComponent implements OnInit {
 
 
   private person: Person = new Person();
+
+  private feed: Feed[] = [];
 
   private feedOkay = false;
 
@@ -30,8 +33,8 @@ export class FeedComponent implements OnInit {
         .subscribe(
           res => {
             if (res['auth'] == true) {
-              this.feedOkay = true;
               this.person = currentUser;
+              this.loadFeed(this.person);
               console.log(this.person);
             } else {
               localStorage.clear();
@@ -47,9 +50,21 @@ export class FeedComponent implements OnInit {
 
     }
   }
-  logout(){
-    localStorage.clear();
-    this.router.navigate(['./login']);
+
+  loadFeed(person) {
+    this.http.post(this.Global.API + '/getfeed', { token: person.token })
+      .subscribe(
+        res => {
+          res['feed'].forEach(e => {
+            this.feed.push(e);
+          });
+          console.log(this.feed);
+        },
+        err => {
+          console.log("Error occured");
+        }
+      );
+    this.feedOkay = true;
   }
 
 }

@@ -1,0 +1,53 @@
+.fixed{
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+    width: 100%;
+    background-color: rgb(200, 200, 200);
+    padding: 10px;
+    box-shadow: 0px 0px 3px 0px #888888;
+    overflow: hidden;
+}
+
+.bottom{
+    bottom: 0;
+    height: 30px;
+    margin: -10px -10px auto;
+    text-align: center;
+}
+
+.top{
+    top: 0;
+    height: 20px;
+}
+
+.title{
+    margin: auto;
+    margin-left: 5px;
+    vertical-align: middle;
+    font-size: 18px; 
+}
+
+.logout {
+    background: rgb(20, 100, 190);
+    border: none;
+    padding: 5px 10px;
+    margin: -3px 15px 0 0;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.right{
+    float: right;
+  }
+
+.button{
+    border: 1px solid black;
+    border-radius: 100%;
+    margin-left: 5px;
+     padding: 0px;
+     width: 35px;
+     height: 35px;
+}

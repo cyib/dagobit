@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { routing } from './app.routing';
 import { AuthService } from './login/auth.service';
 import { Globals } from './global';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

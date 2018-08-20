@@ -4,8 +4,8 @@ import { User } from './user';
 import { Person } from './person';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Title } from '../../../node_modules/@angular/platform-browser';
-import { Globals } from '../global'
+import { Title } from '@angular/platform-browser';
+import { Globals } from '../global';
 
 @Component({
   selector: 'app-login',

@@ -1,0 +1,33 @@
+ng serve --disable-host-check
+
+CREATE TABLE users (
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    mail varchar(255) NOT NULL,
+    pass varchar(255) NOT NULL,
+    nick varchar(255) NOT NULL,
+    age int,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO users (name, pass, mail, nick, age)
+VALUES ('Henry Dagobit', 'pass', 'henrydagobit@gmail.com', 'henry', 19);
+
+
+CREATE TABLE friendType(
+    id int NOT NULL AUTO_INCREMENT,
+    type varchar(45) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE network (
+    id int NOT NULL AUTO_INCREMENT,
+    personId int NOT NULL,
+    friendId int NOT NULL,
+    typeId int NOT NULL,
+    createDate datetime,
+    PRIMARY KEY (id),
+    FOREIGN KEY (personId) REFERENCES users(id),
+    FOREIGN KEY (friendId) REFERENCES users(id),
+    FOREIGN KEY (typeId) REFERENCES friendType(id)
+);

@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 
 var crypToken = 'thebinarygod'
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var con = mysql.createConnection({
     host: "localhost",
@@ -75,6 +75,34 @@ app.post('/user', function (req, res) {
                 }, crypToken);
             }
             res.json({ data: result[0], access_token: token });
+        });
+});
+
+app.post('/getfeed', function (req, res) {
+    console.log("MySQL [" + req.connection.remoteAddress + "]");
+    console.log(req.body);
+    con.query(
+        `
+        SELECT 
+            users.nick, 
+            users.profile,
+            post.content, 
+            post.description,
+            post.nice,
+            post.comment,
+            post.typeId, 
+            post.audienceId, 
+            post.createDate, 
+            post.updateDate 
+        FROM 
+            post 
+        LEFT JOIN users ON post.userId=users.id
+            
+        `,
+        function (err, result, fields) {
+            if (err) throw err;
+            console.log(result);
+            res.json({ feed: result });
         });
 });
 

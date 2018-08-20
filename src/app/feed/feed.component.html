@@ -1,37 +1,41 @@
+<app-menu></app-menu>
 <div *ngIf="feedOkay">
   <div class="main">
     <br>
-    <div>
-      <button (click)="logout()" class="right logout" href="#">Logout</button>
-    </div>
     <br>
     <br>
-    <hr>
-    <div class="post">
+    <div class="post" *ngFor="let post of feed">
       <!-- PROFILE [PHOTO,USERNAME]  -->
       <div class="profile">
-        <img src="../assets/images/Profile.png" alt="profile" class="profile pimg">
-        <a>{{ person.nick }}</a>
+        <img [attr.src]="post.profile" alt="P" class="profile pimg">
+        <a>{{ post.nick }}</a>
         <img src="../assets/images/options.png" alt="profile" class="profile options right">
       </div>
       <!-- POST [POSTAGEM]  -->
-      <div>
-        <img src="../assets/images/Feed.jpg" alt="foto" class="responsive">
+      <div *ngIf="post.typeId == 1">
+        <img [attr.src]="post.content" alt="foto" class="responsive">
+      </div>
+      <div *ngIf="post.typeId == 2">
+        <br>
+        <p alt="content" class="textmid">
+          {{ post.content }}
+        </p>
+        <br>
       </div>
       <!-- FUNÇÕES [NICE,COMMENT]  -->
       <div class="functions">
-        <button>
-          <img src="../assets/images/nice.png" alt="profile" class="profile fimg">0
+        <button id="nicebtn">
+          <img src="../assets/images/nice.png" alt="profile" class="profile fimg">{{ post.nice }}
         </button>
         <button>
-          <img src="../assets/images/comment.png" alt="profile" class="profile fimg">0
+          <img src="../assets/images/comment.png" alt="profile" class="profile fimg">{{ post.comment }}
         </button>
       </div>
       <!-- DESCRIPTION [NICE,COMMENT]  -->
-      <hr>
-      <div class="textmid">
+
+      <div class="textmid" *ngIf="post.description != ''">
         <p>
-          With great power comes great responsibility 🎭
+          {{ post.description }}
         </p>
       </div>
       <hr>
