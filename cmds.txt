@@ -1,4 +1,5 @@
 ng serve --disable-host-check
+ng serve --host=10.10.0.94 --disable-host-check
 
 CREATE TABLE users (
     id int NOT NULL AUTO_INCREMENT,
@@ -31,3 +32,20 @@ CREATE TABLE network (
     FOREIGN KEY (friendId) REFERENCES users(id),
     FOREIGN KEY (typeId) REFERENCES friendType(id)
 );
+
+CREATE TABLE post (
+    id int NOT NULL AUTO_INCREMENT,
+    userId int NOT NULL,
+    content varchar(400) NOT NULL,
+    typeId int NOT NULL,
+    audienceId int NOT NULL,
+    createDate datetime NOT NULL,
+    updateDate datetime NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (audienceId) REFERENCES friendType(id),
+    FOREIGN KEY (typeId) REFERENCES postType(id)
+);
+
+INSERT INTO post (userId, content, typeId, audienceId, createDate, updateDate)
+VALUES (1, '../assets/content/1.png', 1, 4, now(), now());

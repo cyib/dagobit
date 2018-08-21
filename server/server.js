@@ -90,7 +90,7 @@ app.post('/getfeed', function (req, res) {
             post.description,
             post.nice,
             post.comment,
-            post.typeId, 
+            post.type, 
             post.audienceId, 
             post.createDate, 
             post.updateDate 

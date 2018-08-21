@@ -7,15 +7,15 @@
     <div class="post" *ngFor="let post of feed">
       <!-- PROFILE [PHOTO,USERNAME]  -->
       <div class="profile">
-        <img [attr.src]="post.profile" alt="P" class="profile pimg">
+        <img [attr.src]="post.profile" alt="Photo Profile" class="profile pimg">
         <a>{{ post.nick }}</a>
         <img src="../assets/images/options.png" alt="profile" class="profile options right">
       </div>
       <!-- POST [POSTAGEM]  -->
-      <div *ngIf="post.typeId == 1">
-        <img [attr.src]="post.content" alt="foto" class="responsive">
+      <div *ngIf="post.type == 1">
+        <img [attr.src]="post.content" alt="Photo" class="responsive">
       </div>
-      <div *ngIf="post.typeId == 2">
+      <div *ngIf="post.type == 2">
         <br>
         <p alt="content" class="textmid">
           {{ post.content }}
@@ -23,21 +23,22 @@
         <br>
       </div>
       <!-- FUNÇÕES [NICE,COMMENT]  -->
-      <div class="functions">
-        <button id="nicebtn">
+      <div class="functions actions">
+        <a class="left">
           <img src="../assets/images/nice.png" alt="profile" class="profile fimg">{{ post.nice }}
-        </button>
-        <button>
+        </a>
+        <a class="right">
           <img src="../assets/images/comment.png" alt="profile" class="profile fimg">{{ post.comment }}
-        </button>
+        </a>
       </div>
       <!-- DESCRIPTION [NICE,COMMENT]  -->
-
+      <br>
       <div class="textmid" *ngIf="post.description != ''">
         <p>
           {{ post.description }}
         </p>
       </div>
+      <br>
       <hr>
     </div>
     <br>
