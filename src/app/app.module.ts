@@ -10,6 +10,7 @@ import { routing } from './app.routing';
 import { AuthService } from './login/auth.service';
 import { Globals } from './global';
 import { MenuComponent } from './menu/menu.component';
+import { CameraComponent } from './camera/camera.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MenuComponent } from './menu/menu.component';
     AppComponent,
     FeedComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
