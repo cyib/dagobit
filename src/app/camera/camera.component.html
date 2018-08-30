@@ -1,18 +1,15 @@
 <div class="main">
   <div class="row">
-    <button (click)="start()" class="btn btn-primary">Play</button>
+    <button (click)="start()" id="btnplay" class="btn btn-primary">Play</button>
     <button (click)="pause()" class="btn btn-warning">Pause</button>
     <button (click)="resume()" class="btn btn-info">Resume</button>
     <button (click)="sound()" class="btn btn-danger">Play with Sound</button>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="text-center">
-        <h3>
-          <video #videoElement class="responsive"></video>
-        </h3>
-      </div>
-    </div>
-  </div>
+  <canvas style="display: none !important;" #canvasElementCob id="theCanvas"></canvas>
+  <video style="display: none !important;" #videoElement id="theVideo" class="responsive"></video>
+  
+  <canvas #canvasElement id="theCanvas" class="responsive"></canvas>
+  
+
 </div>

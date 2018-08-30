@@ -9,7 +9,7 @@
     width:100%;  
     display: block;
     margin: 0 auto;
-    height: 400px;
+    height: auto;
 }
   .main {
     background-color:#ececec;

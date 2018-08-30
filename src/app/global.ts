@@ -2,5 +2,5 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Globals {
-    API: string = 'https://10.10.0.94:3000';
+    API: string = 'https://localhost:3000';
 }
