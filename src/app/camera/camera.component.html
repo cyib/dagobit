@@ -1,4 +1,4 @@
-<div class="main">
+<div id="camera" class="main">
   <div class="row">
     <button (click)="start()" id="btnplay" class="btn btn-primary">Play</button>
     <button (click)="pause()" class="btn btn-warning">Pause</button>
@@ -8,8 +8,8 @@
 
   <canvas style="display: none !important;" #canvasElementCob id="theCanvas"></canvas>
   <video style="display: none !important;" #videoElement id="theVideo" class="responsive"></video>
-  
+
   <canvas #canvasElement id="theCanvas" class="responsive"></canvas>
-  
+
 
 </div>
