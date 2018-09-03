@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Ago-2018 às 22:38
+-- Generation Time: 03-Set-2018 às 07:30
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -56,6 +56,14 @@ CREATE TABLE `network` (
   `typeId` int(11) NOT NULL,
   `createDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `network`
+--
+
+INSERT INTO `network` (`id`, `personId`, `friendId`, `typeId`, `createDate`) VALUES
+(1, 1, 2, 2, '2018-09-03 01:13:39'),
+(2, 2, 1, 3, '2018-09-03 01:14:06');
 
 -- --------------------------------------------------------
 
@@ -117,16 +125,18 @@ CREATE TABLE `users` (
   `pass` varchar(255) NOT NULL,
   `nick` varchar(255) NOT NULL,
   `age` int(11) DEFAULT NULL,
-  `profile` varchar(255) NOT NULL DEFAULT '../assets/content/profiles/new.png'
+  `profile` varchar(255) NOT NULL DEFAULT '../assets/content/profiles/new.png',
+  `followers` int(11) NOT NULL DEFAULT '0',
+  `following` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `mail`, `pass`, `nick`, `age`, `profile`) VALUES
-(1, 'Henry Dagobit', 'henrydagobit@gmail.com', 'pass', 'henry', 19, '../assets/content/profiles/1.png'),
-(2, 'Lucas Borges', 'lucas@gmail.com', 'senha', 'lucas', 18, '../assets/content/profiles/new.png');
+INSERT INTO `users` (`id`, `name`, `mail`, `pass`, `nick`, `age`, `profile`, `followers`, `following`) VALUES
+(1, 'Henry Dagobit', 'henrydagobit@gmail.com', 'pass', 'henry', 19, '../assets/content/profiles/1.png', 10, 0),
+(2, 'Lucas Borges', 'lucas@gmail.com', 'senha', 'lucas', 18, '../assets/content/profiles/new.png', 5, 2);
 
 --
 -- Indexes for dumped tables
@@ -182,7 +192,7 @@ ALTER TABLE `friendtype`
 -- AUTO_INCREMENT for table `network`
 --
 ALTER TABLE `network`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `post`
