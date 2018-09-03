@@ -1,44 +1,46 @@
 <app-menu></app-menu>
 <div *ngIf="feedOkay">
   <div class="main">
-      <div class="storyes">
-        <div class="story">
-          <table>
-            <tr>
-              <th>
-                <tr><img src="../assets/content/profiles/1.jpg" alt="profile" class="profile simg sib"></tr>
-                <tr>luqazy</tr>
-              </th>
-              <th>
-                  <tr><img src="../assets/content/profiles/2.jpg" alt="profile" class="profile simg sib"></tr>
-                  <tr>henry</tr>
-              </th>
-              <th>
-                  <tr><img src="../assets/content/profiles/3.jpg" alt="profile" class="profile simg sib"></tr>
-                  <tr>lucas</tr>
-              </th>
-              <th>
-                <tr><img src="../assets/content/profiles/4.jpg" alt="profile" class="profile simg sib"></tr>
-                <tr>dagobit</tr>
-              </th>
-              <th>
-                  <tr><img src="../assets/content/profiles/5.jpg" alt="profile" class="profile simg sib"></tr>
-                  <tr>bit</tr>
-              </th>
-              <th>
-                  <tr><img src="../assets/content/profiles/6.jpg" alt="profile" class="profile simg"></tr>
-                  <tr>nome</tr>
-              </th>
-            </tr>
-          </table>
-        </div>
+    <div class="storyes">
+      <div class="story">
+        <table>
+          <tr>
+            <th>
+              <tr><img src="../assets/content/profiles/1.jpg" alt="profile" class="profile simg sib"></tr>
+              <tr>luqazy</tr>
+            </th>
+            <th>
+              <tr><img src="../assets/content/profiles/2.jpg" alt="profile" class="profile simg sib"></tr>
+              <tr>henry</tr>
+            </th>
+            <th>
+              <tr><img src="../assets/content/profiles/3.jpg" alt="profile" class="profile simg sib"></tr>
+              <tr>lucas</tr>
+            </th>
+            <th>
+              <tr><img src="../assets/content/profiles/4.jpg" alt="profile" class="profile simg sib"></tr>
+              <tr>dagobit</tr>
+            </th>
+            <th>
+              <tr><img src="../assets/content/profiles/5.jpg" alt="profile" class="profile simg sib"></tr>
+              <tr>bit</tr>
+            </th>
+            <th>
+              <tr><img src="../assets/content/profiles/6.jpg" alt="profile" class="profile simg"></tr>
+              <tr>nome</tr>
+            </th>
+          </tr>
+        </table>
       </div>
+    </div>
     <hr>
     <div class="post" *ngFor="let post of feed">
       <!-- PROFILE [PHOTO,USERNAME]  -->
       <div class="profile">
-        <img [attr.src]="post.profile" alt="Photo Profile" class="profile pimg">
-        <a>{{ post.nick }}</a>
+        <a [attr.href]="post.nick" class="nlink">
+          <img [attr.src]="post.profile" alt="Photo Profile" class="profile pimg">
+          <a>{{ post.nick }}</a>
+        </a>
         <img src="../assets/images/options.png" alt="profile" class="profile options right">
       </div>
       <!-- POST [POSTAGEM]  -->
@@ -47,14 +49,14 @@
       </div>
       <div *ngIf="post.type == 2">
         <p alt="content" class="textmid">
-            {{ post.content }}
-          </p>
-          <br>
-        </div>
-        <!-- FUNÇÕES [NICE,COMMENT]  -->
-        <div class="functions actions">
-          <a class="left">
-            <img src="../assets/images/nice.png" alt="profile" class="profile fimg">{{ post.nice }}
+          {{ post.content }}
+        </p>
+        <br>
+      </div>
+      <!-- FUNÇÕES [NICE,COMMENT]  -->
+      <div class="functions actions">
+        <a class="left">
+          <img src="../assets/images/nice.png" alt="profile" class="profile fimg">{{ post.nice }}
         </a>
         <a class="right">
           <img src="../assets/images/comment.png" alt="profile" class="profile fimg">{{ post.comment }}

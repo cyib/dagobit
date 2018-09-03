@@ -93,7 +93,7 @@ app.post('/getfeed', function (req, res) {
             post.type, 
             post.audienceId, 
             post.createDate, 
-            post.updateDate 
+            post.updateDate
         FROM 
             post 
         LEFT JOIN users ON post.userId=users.id
@@ -103,6 +103,42 @@ app.post('/getfeed', function (req, res) {
             if (err) throw err;
             console.log(result);
             res.json({ feed: result });
+        });
+});
+
+app.post('/getprofile', function (req, res) {
+    console.log("MySQL [" + req.connection.remoteAddress + "]");
+    console.log(req.body);
+    var results = {};
+    con.query(
+        `SELECT 
+            post.content, 
+            post.description,
+            post.nice,
+            post.comment,
+            post.type, 
+            post.audienceId, 
+            post.createDate, 
+            post.updateDate
+        FROM 
+            post 
+        LEFT JOIN users ON post.userId=users.id WHERE users.nick='`+ req.body.nick + `' AND post.type = 1`,
+        function (err, contents, fields) {
+            if (err) throw err;
+            results.contents = contents;
+            con.query(
+                `SELECT users.id, users.name, users.nick, users.followers, users.following, users.profile FROM users WHERE users.nick='` + req.body.nick + `'`,
+                function (err, userinfo, fields) {
+                    if (err) throw err;
+                    results.userinfo = userinfo;
+                    con.query(
+                        `SELECT typeId FROM network WHERE personId = ` + req.body.id + ` AND friendId = (SELECT users.id FROM users WHERE users.nick='` + req.body.nick + `')`,
+                        function (err, network, fields) {
+                            if (err) throw err;
+                            results.network = network;
+                            res.json({ profile: results.userinfo, contents: results.contents, network: results.network });
+                        });
+                });
         });
 });
 

@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<div>
+  <div class="header">
+    <div class="column center">
+      <br><br>
+      <a><a class="number">{{ profile.followers }}</a><br>seguidores</a>
+      <br><br>
+      <button *ngIf="profile.network==-1">OPÇÕES</button>
+      <button *ngIf="profile.network==0">SEGUIR</button>
+      <button *ngIf="profile.network==4">SEGUINDO</button>
+      <button *ngIf="profile.network==1">FAMILIA</button>
+      <button *ngIf="profile.network==2">AMIGO</button>
+      <button *ngIf="profile.network==3">COLEGA</button>
+    </div>
+    <div class="column center">
+      <br><br>
+      <a><a class="number">{{ profile.following }}</a><br>seguindo</a>
+      <br><br>
+      <a><a class="number">{{ content.length }}</a> posts</a>
+    </div>
+    <div class="column">
+      <img [attr.src]="profile.profile" alt="Photo Profile" class="profile pimg">
+      <p class="username">{{ profile.nick }}</p>
+    </div>
+  </div>
+
+
+  <div class="body">
+    <div class="post" *ngFor="let post of content">
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" [attr.href]="post.content">
+            <img [attr.src]="post.content" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+  </div>
+</div>

@@ -7,6 +7,12 @@
   font-family: Lora;
 }
 
+.nlink{
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
+
 body{
     margin: unset;
   }

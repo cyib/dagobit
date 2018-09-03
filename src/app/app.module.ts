@@ -11,6 +11,7 @@ import { AuthService } from './login/auth.service';
 import { Globals } from './global';
 import { MenuComponent } from './menu/menu.component';
 import { CameraComponent } from './camera/camera.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CameraComponent } from './camera/camera.component';
     FeedComponent,
     LoginComponent,
     MenuComponent,
-    CameraComponent
+    CameraComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

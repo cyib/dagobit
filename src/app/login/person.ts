@@ -4,6 +4,9 @@ export class Person {
     id: number;
     name: string;
     nick: string;
+    network: number;
     age: number;
     token: Token;
+    followers: string;
+    following: string;
 }

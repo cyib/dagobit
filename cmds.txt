@@ -1,6 +1,6 @@
 ng serve --disable-host-check
 ng serve --host=10.10.0.94 --disable-host-check
-ng serve --host=192.168.15.40 --disable-host-check
+ng serve --host=192.168.15.41 --disable-host-check
 ng g c camera
 
 
